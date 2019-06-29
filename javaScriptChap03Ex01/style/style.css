@@ -13,15 +13,17 @@ body {
 }
 
 h1 {
-    font-family: 'Segoe UI light', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Helvetica', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 5rem;
+    font-weight: 100;
     line-height: 4.5rem;
     padding-top: 4rem;
 }
 
 p, label, input {
-    font-family: 'Segoe UI light', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Helvetica', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 2rem;
+    font-weight: 100;
     color: gray;
 }
 
