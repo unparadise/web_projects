@@ -4,7 +4,7 @@
 <html>
 
 <head>
-    <title>React 101</title>
+    <title>Learning React Chapter 04 - Styling</title>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
@@ -19,7 +19,7 @@
 	    		const letterStyle = {
 	    		padding: 10,
 	    		margin: 10,
-	    		backgroundColor: "#ffde00",
+	    		backgroundColor: this.props.bgcolor, //Using the bgcolor property
 	    		color: "#333",
 	    		display: "inline-block",
 	    		fontFamily: "monospace",
@@ -37,11 +37,11 @@
 
 	    ReactDOM.render(
 	    	<div>
-	    		<Letter>A</Letter>
-	    		<Letter>E</Letter>
-	    		<Letter>I</Letter>
-	    		<Letter>O</Letter>
-	    		<Letter>U</Letter>
+	    		<Letter bgcolor="#58B3FF">A</Letter>
+	    		<Letter bgcolor="#FF605F">E</Letter>
+	    		<Letter bgcolor="#FFD52E">I</Letter>
+	    		<Letter bgcolor="#49DD8E">O</Letter>
+	    		<Letter bgcolor="#AE99FF">U</Letter>
 	    	</div>,
 	    	document.getElementById("root")
 	    );
