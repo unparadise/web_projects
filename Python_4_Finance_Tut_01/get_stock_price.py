@@ -5,11 +5,10 @@
 #import pandas_datareader.data as web
 
 from bs4 import BeautifulSoup
-import urllib2
+import urllib.request
 
-url = "https://www.pythonforbeginners.com"
-content = urllib2.urlopen(url).read()
+url = urllib.request.urlopen('http://www.google.com')
 
-soup = BeautifulSoup(content)
+soup = BeautifulSoup(url, 'html.parser')
 
-print soup.prettify()
+print(soup.prettify())
