@@ -1,0 +1,71 @@
+<!-- Exercises in Chapter 09 of Learning React book-->
+<!-- Chapter 09:  Going from Data to UI -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Learning React Chapter 09 - Going from Data to UI</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        class LightingCounter extends React.Component {
+            constructor(props) { // In ES6, constructor is how default states are decleared
+                super(props);
+                this.state = {strikes: 0};
+                this.timerTick = this.timerTick.bind(this); // In ES6, manual bind is required
+            }
+
+            timerTick() {
+                this.setState({
+                    strikes: this.state.strikes + 100
+                });
+            };
+
+            componentDidMount() {
+                setInterval(this.timerTick, 1000);
+            };
+
+            render() {
+                return(
+                    <h1>{this.state.strikes}</h1>
+                );
+            };
+        }
+
+        class LightingCounterDisplay extends React.Component {
+            render() {
+                const displayStyle = {
+                    width: 250,
+                    textAlign: "center",
+                    backgroundColor: "black",
+                    padding: 40,
+                    fontFamily: "sans-serif",
+                    color: "#999",
+                    borderRadius: 10
+                };
+
+                return(
+                    <div style={displayStyle}>
+                        <LightingCounter />
+                    </div>
+                );
+            };
+        }
+
+        ReactDOM.render (
+            <div>
+                <LightingCounterDisplay />
+            </div>,
+            document.getElementById("container")
+        );    
+	</script>
+</body>
+
+</html>
