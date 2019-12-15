@@ -3,8 +3,9 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Learning React Chapter 06 - </title>
+    <title>Learning React Chapter 08 - More State!</title>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
@@ -14,40 +15,45 @@
 <body>
     <div id="container"></div>
     <script type="text/babel">
-        class Display extends React.Component {
+        class LightingCounter extends React.Component {
+            constructor(props) { // In ES6, constructor is how default states are decleared
+                super(props);
+                this.state = {strikes: 0};
+                this.timerTick = this.timerTick.bind(this); // In ES6, manual bind is required
+            }
+
+            timerTick() {
+                this.setState({
+                    strikes: this.state.strikes + 100
+                });
+            };
+
+            componentDidMount() {
+                setInterval(this.timerTick, 1000);
+            };
+
             render() {
                 return(
-                    <div>
-                        <p>{this.props.color}</p>
-                        <p>{this.props.num}</p>
-                        <p>{this.props.size}</p>
-                    </div>
+                    <h1>{this.state.strikes}</h1>
                 );
             };
         }
 
-        class Label extends React.Component {
+        class LightingCounterDisplay extends React.Component {
             render() {
-                const labelStyle = {
+                const displayStyle = {
+                    width: 250,
+                    textAlign: "center",
+                    backgroundColor: "black",
+                    padding: 40,
                     fontFamily: "sans-serif",
-                    fontWeight: "bold",
-                    padding: 12,
-                    margin: 0
+                    color: "#999",
+                    borderRadius: 10
                 };
 
                 return(
-                    <div style={labelStyle}>
-                        <Display {...this.props} />
-                    </div>
-                );
-            };
-        }
-
-        class Shirt extends React.Component {
-            render() {
-                return(
-                    <div>
-                        <Label {...this.props} />
+                    <div style={displayStyle}>
+                        <LightingCounter />
                     </div>
                 );
             };
@@ -55,7 +61,7 @@
 
         ReactDOM.render (
             <div>
-                <Shirt color="#FF6663" num="1.23" size="medium" />
+                <LightingCounterDisplay />
             </div>,
             document.getElementById("container")
         );    
