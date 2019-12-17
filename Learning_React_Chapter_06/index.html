@@ -15,6 +15,13 @@
 <body>
     <div id="container"></div>
     <script type="text/babel">
+        function showCircle() {
+            var colors = ["#393E41", "E94F37", "#1C89BF", "#A1D363"];
+            var ran = Math.floor(Math.random() * colors.length);
+
+            return <Circle bgColor={colors[ran]} />;
+        };
+
         class Circle extends React.Component {
             render() {
                 const circleStyle = {
@@ -37,7 +44,7 @@
 
         ReactDOM.render (
             <div>
-                <Circle bgColor="#F9C240" />
+                {showCircle()}
             </div>,
             document.getElementById("container")
         );    
