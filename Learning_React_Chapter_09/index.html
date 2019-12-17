@@ -1,5 +1,5 @@
 <!-- Exercises in Chapter 09 of Learning React book-->
-<!-- Chapter 09:  Going from Data to UI -->
+<!-- Chapter 06:  Going from Data to UI -->
 
 <!DOCTYPE html>
 <html>
@@ -15,45 +15,28 @@
 <body>
     <div id="container"></div>
     <script type="text/babel">
-        class LightingCounter extends React.Component {
-            constructor(props) { // In ES6, constructor is how default states are decleared
-                super(props);
-                this.state = {strikes: 0};
-                this.timerTick = this.timerTick.bind(this); // In ES6, manual bind is required
-            }
+       function showCircle() {
+            var colors = ["#393E41", "E94F37", "#1C89BF", "#A1D363"];
+            var ran = Math.floor(Math.random() * colors.length);
 
-            timerTick() {
-                this.setState({
-                    strikes: this.state.strikes + 100
-                });
-            };
+            return <Circle bgColor={colors[ran]} />;
+        };
 
-            componentDidMount() {
-                setInterval(this.timerTick, 1000);
-            };
-
+        class Circle extends React.Component {
             render() {
-                return(
-                    <h1>{this.state.strikes}</h1>
-                );
-            };
-        }
-
-        class LightingCounterDisplay extends React.Component {
-            render() {
-                const displayStyle = {
-                    width: 250,
-                    textAlign: "center",
-                    backgroundColor: "black",
-                    padding: 40,
-                    fontFamily: "sans-serif",
-                    color: "#999",
-                    borderRadius: 10
+                const circleStyle = {
+                    padding: 10,
+                    margin: 20,
+                    display: "inline-block",
+                    backgroundColor: this.props.bgColor,
+                    borderRadius: "50%",
+                    width: 100,
+                    height: 100,
                 };
 
                 return(
-                    <div style={displayStyle}>
-                        <LightingCounter />
+                    <div style={circleStyle}>
+                        
                     </div>
                 );
             };
@@ -61,10 +44,12 @@
 
         ReactDOM.render (
             <div>
-                <LightingCounterDisplay />
+                {showCircle()}
+                {showCircle()}
+                {showCircle()}
             </div>,
             document.getElementById("container")
-        );    
+        );
 	</script>
 </body>
 
