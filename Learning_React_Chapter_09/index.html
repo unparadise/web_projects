@@ -15,12 +15,9 @@
 <body>
     <div id="container"></div>
     <script type="text/babel">
-       function showCircle() {
-            var colors = ["#393E41", "E94F37", "#1C89BF", "#A1D363"];
-            var ran = Math.floor(Math.random() * colors.length);
+        //var ran = Math.floor(Math.random() * colors.length);
 
-            return <Circle bgColor={colors[ran]} />;
-        };
+        //return <Circle bgColor={colors[ran]} />;
 
         class Circle extends React.Component {
             render() {
@@ -42,11 +39,19 @@
             };
         }
 
+        var colors = ["#393E41", "#E94F37", "#1C89BF", "#A1D363",
+                    "#85FFC7", "#297373", "#FF8552", "#A40E4C"];
+            
+        var renderData = [];
+        
+        for (var i = 0; i < colors.length; i++) {
+            var color = colors[i];
+            renderData.push(<Circle key={i+color} bgColor={color} />);
+        }
+
         ReactDOM.render (
             <div>
-                {showCircle()}
-                {showCircle()}
-                {showCircle()}
+                {renderData}
             </div>,
             document.getElementById("container")
         );
