@@ -40,7 +40,12 @@
             }
 
             increase(e) {
-                this.setState({count: this.state.count + 1});
+                if(e.shiftKey) {
+                    this.setState({count: this.state.count + 10});
+                } else {
+                    this.setState({count: this.state.count + 1});
+                }
+                
             }
 
             render() {
