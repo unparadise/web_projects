@@ -36,7 +36,11 @@
             constructor(props) { // In ES6, constructor is how default states are decleared
                 super(props);
                 this.state = {count: 0};
-                // this.timerTick = this.timerTick.bind(this); // In ES6, manual bind is required
+                this.increase = this.increase.bind(this); // In ES6, manual bind is required
+            }
+
+            increase(e) {
+                this.setState({count: this.state.count + 1});
             }
 
             render() {
@@ -65,7 +69,7 @@
                 return(
                     <div style={backgroundStyle}>
                         <Counter display={this.state.count} />
-                        <button style={buttonStyle}> Add one </button>
+                        <button onClick={this.increase} style={buttonStyle}> Add one </button>
                     </div>
                 );
             }
