@@ -1,12 +1,12 @@
 <!-- Exercises in Chapter 10 of Learning React book-->
 <!-- Chapter 10:  Working with Events -->
-<!-- Handeling event in the component -->
+<!-- Using Event Listener to handle regular DOM events -->
 
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Learning React Chapter 09 - Going from Data to UI</title>
+    <title>Learning React Chapter 10 - Working with Events</title>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
@@ -69,6 +69,30 @@
         }
 
         class PlusButton extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {buttonText: "Add 1"};
+                this.updateButtonText = this.updateButtonText.bind(this);
+            }
+
+            updateButtonText(e) {
+                if(e.shiftKey) {
+                    this.setState({buttonText: "Add 10"});
+                } else {
+                    this.setState({buttonText: "Add 1"});
+                }
+            }
+
+            componentDidMount() {
+                document.addEventListener('keydown', this.updateButtonText);
+                document.addEventListener('keyup', this.updateButtonText);
+            }
+
+            componentWillUnmount() {
+                document.removeEventListener('keydown', this.updateButtonText);
+                document.addEventListener('keyup', this.updateButtonText);
+            }
+
             render() {
                 const buttonStyle = {
                     fontSize: "1em",
@@ -85,7 +109,7 @@
 
                 return (
                     <button onClick = {this.props.clickHandler} style={buttonStyle}>
-                    +
+                    {this.state.buttonText}
                     </button>
                 );
             }
