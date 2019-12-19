@@ -1,0 +1,116 @@
+<!-- Exercises in Chapter 10 of Learning React book-->
+<!-- Chapter 10:  Working with Events -->
+<!-- Handeling event in the component -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Learning React Chapter 09 - Going from Data to UI</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        class Counter extends React.Component {
+            render() {
+                const textStyle = {
+                    fontSize: 72,
+                    fontFamily: "sans-serif",
+                    color: "#333",
+                    fontWeight: "bold"
+                };
+
+                return(
+                    <div style={textStyle}>
+                        {this.props.display}
+                    </div>
+                );
+            };
+        }
+
+        class CounterParent extends React.Component {
+            constructor(props) { // In ES6, constructor is how default states are decleared
+                super(props);
+                this.state = {count: 0};
+                this.increase = this.increase.bind(this); // In ES6, manual bind is required
+            }
+
+            increase(e) {
+                if(e.shiftKey) {
+                    this.setState({count: this.state.count + 10});
+                } else {
+                    this.setState({count: this.state.count + 1});
+                }
+                
+            }
+
+            render() {
+                var backgroundStyle = {
+                    padding: 50,
+                    backgroundColor: "#FFC53A",
+                    width: 250,
+                    height: 100,
+                    borderRadius: 10,
+                    textAlign: "center"
+                };
+
+                var buttonStyle = {
+                    fontSize: "1em",
+                    paddingTop: 4,
+                    marginTop: 12,
+                    width: 120,
+                    height: 30,
+                    fontFamily: "sans-serif",
+                    color: "#333",
+                    borderRadius: 15,
+                    fontWeight: "bold",
+                    lineHeight: "3px"
+                };
+
+                return(
+                    <div style={backgroundStyle}>
+                        <Counter display={this.state.count} />
+                        <PlusButton clickHandler={this.increase}></PlusButton>
+                    </div>
+                );
+            }
+        }
+
+        class PlusButton extends React.Component {
+            render() {
+                const buttonStyle = {
+                    fontSize: "1em",
+                    paddingTop: 4,
+                    marginTop: 12,
+                    width: 120,
+                    height: 30,
+                    fontFamily: "sans-serif",
+                    color: "#333",
+                    borderRadius: 15,
+                    fontWeight: "bold",
+                    lineHeight: "3px"
+                };
+
+                return (
+                    <button onClick = {this.props.clickHandler} style={buttonStyle}>
+                    +
+                    </button>
+                );
+            }
+        }
+
+        ReactDOM.render (
+            <div>
+                <CounterParent />
+            </div>,
+            document.getElementById("container")
+        );
+	</script>
+</body>
+
+</html>
