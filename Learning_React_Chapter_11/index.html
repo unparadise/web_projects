@@ -1,4 +1,4 @@
-<!-- Exercises in Chapter 10 of Learning React book-->
+<!-- Exercises in Chapter 11 of Learning React book-->
 <!-- Chapter 11:  Component Lifecycle -->
 
 <!DOCTYPE html>
@@ -37,7 +37,26 @@
                 super(props);
                 this.state = {count: 0};
                 this.increase = this.increase.bind(this); // In ES6, manual bind is required
+                console.log ('Constructor is called');
             }
+
+            /* 
+            The following two calls have been depricated
+
+            getDefaultProps() {
+                console.log('getDefaultProps is called');
+            }
+
+            getInitialState() {
+                console.log('getInitialState is called');
+            }
+            */
+
+            componentDidMount() {
+                console.log('componentDidMount is called');
+            }
+
+            
 
             increase(e) {
                 if(e.shiftKey) {
