@@ -1,6 +1,7 @@
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script src="https://unpkg.com/framer@1.1.6/build/framer.js"></script>
 <script src="https://unpkg.com/browse/framer-motion@1.7.0/dist/framer-motion.js"></script>
 
 const styles = {
