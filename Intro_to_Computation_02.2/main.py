@@ -7,19 +7,15 @@ x = int(input('Please enter an integer x: '))
 y = int(input('PLease enter an integer y: '))
 z = int(input('Please enter an integer z: '))
 
-if x > y and x > z and x % 2 != 0:
+if x > y and x > z:
     if x%2 != 0:
         print(x, ' is the largest odd number')
-    else:
-        print(x, ', the largest number is not an odd number')
-elif y > x:
+elif y > x and y > z:
     if y%2 != 0:
         print(y, ' is the largest odd number')
-    else:
-        print(y, ', the largest number is not an odd number')
 else:
     if z%2 != 0:
         print(z, ' is the largest odd number')
-    else:
-        print(z, ', the largest number is not an odd number')
 
+if x % 2 == 0 and y % 2 == 0 and z % 2 == 0:
+    print('All three numbers are even numbers')
