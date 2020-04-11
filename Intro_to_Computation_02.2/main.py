@@ -17,5 +17,6 @@ else:
     if z%2 != 0:
         print(z, ' is the largest odd number')
 
+# Decide whether all 3 nubmers are even
 if x % 2 == 0 and y % 2 == 0 and z % 2 == 0:
     print('All three numbers are even numbers')
