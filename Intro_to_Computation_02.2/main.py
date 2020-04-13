@@ -23,4 +23,5 @@ if len(oddNumbers) == 0:
     print('All three numbers are even numbers')
 else:
     oddNumbers.sort() # Sort the odd numbers in the list in the assending order
+    print('-----------------------------------')
     print(oddNumbers[-1], 'is the largest odd number')
