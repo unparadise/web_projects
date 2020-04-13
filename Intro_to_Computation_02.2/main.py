@@ -7,16 +7,19 @@ x = int(input('Please enter an integer x: '))
 y = int(input('PLease enter an integer y: '))
 z = int(input('Please enter an integer z: '))
 
-if x > y and x > z:
-    if x%2 != 0:
-        print(x, ' is the largest odd number')
-elif y > x and y > z:
-    if y%2 != 0:
-        print(y, ' is the largest odd number')
-else:
-    if z%2 != 0:
-        print(z, ' is the largest odd number')
+oddNumbers = []
 
-# Decide whether all 3 nubmers are even
-if x % 2 == 0 and y % 2 == 0 and z % 2 == 0:
+# Add x to the oddNumber list if it is an odd number
+if x % 2 != 0:
+    oddNumbers.append(x)
+if y % 2 != 0:
+    oddNumbers.append(y)
+if z % 2 != 0:
+    oddNumbers.append(z)
+
+# If there is no odd number then print the message to inform the users
+if len(oddNumbers) == 0:
     print('All three numbers are even numbers')
+else:
+    oddNumbers.sort() # Sort the odd numbers in the list in the assending order
+    print(oddNumbers[-1], 'is the largest odd number')
