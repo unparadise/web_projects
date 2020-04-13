@@ -3,6 +3,7 @@
 # Write a program that examines three variables and prints the 
 # largest odd number among them.
 
+# Ask the user to enter 3 integers
 x = int(input('Please enter an integer x: '))
 y = int(input('PLease enter an integer y: '))
 z = int(input('Please enter an integer z: '))
