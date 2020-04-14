@@ -6,10 +6,10 @@
 
 # Ask the user to enter 3 integers
 allNumbersStr = input('Please enter 10 integers separated by comma: ')
-allNumbersStrList = allNumbersStr.split(',')
-print(allNumbersStrList)
 
-allNumbersInt = []
+# TODO: Add logic to check whether the user has entered more than 10 numbers
+
+allNumbersStrList = allNumbersStr.split(',')
 
 oddNumbers = []
 
