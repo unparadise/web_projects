@@ -12,8 +12,9 @@ while True:
 
     allNumbersStrList = allNumbersStr.split(',')
     if len(allNumbersStrList) == 10:
-        print('You entered', len(allNumbersStrList), 'numbers')
         break
+    else:
+        print('You entered', len(allNumbersStrList), 'numbers')
 
 oddNumbers = []
 
