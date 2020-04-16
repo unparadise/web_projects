@@ -4,17 +4,15 @@
 # largest odd number among them. If there is no odd numbers,
 # let the users know.
 
-while True:
-    # Ask the user to enter 3 integers
-    allNumbersStr = input('Please enter 10 integers separated by comma: ')
+# Ask the user to enter 3 integers
+allNumbersStr = input('Please enter 10 integers separated by comma: ')
 
-    # TODO: Add logic to check whether the user has entered more than 10 numbers
+allNumbersStrList = allNumbersStr.split(',')
 
-    allNumbersStrList = allNumbersStr.split(',')
-    if len(allNumbersStrList) == 10:
-        break
-    else:
-        print('You entered', len(allNumbersStrList), 'numbers')
+print(len(allNumbersStrList))
+#if len(allNumbersStrList) != 10:
+#    print('You entered', len(allNumbersStrList), 'numbers')
+#    break
 
 oddNumbers = []
 
