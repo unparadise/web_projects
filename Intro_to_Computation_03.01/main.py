@@ -7,4 +7,16 @@
 # message to that effect.
 
 number = int(input('Please enter an integer: '))
-print(number)
+# print(number)
+
+root = 1
+pwr = 1
+
+while pwr < 6:
+    if root**pwr >= number:
+        break
+
+    pwr += 1
+    root += 1
+
+print(root, '**', pwr, '=', number)
