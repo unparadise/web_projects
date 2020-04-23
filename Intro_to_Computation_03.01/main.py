@@ -25,6 +25,6 @@ while True:
 	if root ** pwr == number:
 		print(root, '**', pwr, '=', number)
 		break
-	elif root == number:
+	elif root == number: # This is not the best way to decide the stop condition
 		print('Can\'t find the root and pwr for', number)
 		break
