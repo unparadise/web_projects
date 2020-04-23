@@ -9,14 +9,22 @@
 number = int(input('Please enter an integer: '))
 # print(number)
 
-root = 1
-pwr = 1
+root = 0
+pwr = 0
 
-while pwr < 6:
-    if root**pwr >= number:
-        break
+while True:
+	print('root = ', root)
+	print('root ** pwr = ', root ** pwr)
+	pwr += 1
+	print('pwr = ', pwr)
 
-    pwr += 1
-    root += 1
+	if pwr == 6:
+		root += 1
+		pwr = 0
 
-print(root, '**', pwr, '=', number)
+	if root ** pwr == number:
+		print(root, '**', pwr, '=', number)
+		break
+	elif root == number:
+		print('Can\'t find the root and pwr for', number)
+		break
