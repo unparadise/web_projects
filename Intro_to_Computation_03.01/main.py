@@ -19,7 +19,10 @@ while True:
 	print('pwr = ', pwr)
 
 	if pwr == 6:
-		root += 1
+		if number >= 0:
+			root += 1
+		else:
+			root -= 1
 		pwr = 0
 
 	if root ** pwr == number:
