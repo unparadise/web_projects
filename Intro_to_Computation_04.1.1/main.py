@@ -3,6 +3,8 @@
 # as arguments and returns True if either string
 # occurs in the other, and False otherwise.
 
+import gi
+
 def isIn(stringOne, stringTwo):
 	if len(stringOne) > len(stringTwo):
 		# print('String one is longer than string two')
@@ -25,6 +27,16 @@ def isIn(stringOne, stringTwo):
 		else:
 			print('String one and string two are the same')
 			return True
+
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk
+
+window = Gtk.Window(title="Compare strings")
+window.show()
+window.connect("destroy", Gtk.main_quit)
+Gtk.main()
+
+
 
 strOne = input('Please enter the first string: ')
 strTwo = input('Please enter the second string: ')
