@@ -33,5 +33,3 @@ style.use('ggplot')
 close_px.plot(label='AAPL')
 mavg.plot(label='mavg')
 plt.legend()
-
-# %%
