@@ -18,7 +18,7 @@ df = web.DataReader("AAPL", 'yahoo', start, end)
 df.tail()
 
 # write the price history data to an Excel file
-df.to_excel('./AAPL.xlsx', sheet_name='Price History')
+# df.to_excel('./AAPL.xlsx', sheet_name='Price History')
 
 close_px = df['Adj Close']
 mavg = close_px.rolling(window=200).mean()
@@ -33,8 +33,3 @@ style.use('ggplot')
 close_px.plot(label='AAPL')
 mavg.plot(label='mavg')
 plt.legend()
-
-# %%
-
-
-# %%
