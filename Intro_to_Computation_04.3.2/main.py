@@ -2,6 +2,7 @@
 # palindromes. A palindrome is a word, phrase, or
 # sequence that reads the same backward as forward,
 # e.g., madam or nurses run
+# The following solution does not use recurrsion
 
 def isPalindrome(userString):
     # covert uppercase letters in the string to lowercase letters
