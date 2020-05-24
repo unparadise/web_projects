@@ -4,6 +4,10 @@
 # occurs in the other, and False otherwise.
 
 def isIn(stringOne, stringTwo):
+	# covert all uppercase letters in the string to lowercase letters
+	stringOne = stringOne.lower()
+	stringTwo = stringTwo.lower()
+
 	if len(stringOne) > len(stringTwo):
 		# print('String one is longer than string two')
 		if stringOne.find(stringTwo) == -1:
