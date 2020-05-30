@@ -19,6 +19,9 @@ def getRate(date, fromCurrency, toCurrency):
     return {'Date': date, 'Rate': rate, 'From': fromCurrency, 'To': toCurrency}
 
 date = getDate()
-todaysRate = getRate(date, 'USD', 'CNY')
+
+if len(exchangeRates) == 0 or exchangeRates[len(exchangeRates)-1]['Date'] != date:
+        todaysRate = getRate(date, 'USD', 'CNY')
+
 exchangeRates.append(todaysRate)
 print(exchangeRates)
