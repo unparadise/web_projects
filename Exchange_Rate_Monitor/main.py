@@ -66,7 +66,8 @@ def sendemail(date, exRate, fmCurrency, toCurrency, receiverEmails):
 # This is the beginning of the main program
 
 date = getDate()
-csvFile = './web_projects/Exchange_Rate_Monitor/exchange_rates.csv'
+#csvFile = './web_projects/Exchange_Rate_Monitor/exchange_rates.csv'
+csvFile = './exchange_rates.csv'
 
 try:
     with open(csvFile) as csvFileHandle:
@@ -93,6 +94,6 @@ try:
         for data in exchangeRates:
             writer.writerow(data)
 except IOError:
-    print("I/O error")
+    print('Can\'t write to file. I/O error.')
 
 print(exchangeRates)
