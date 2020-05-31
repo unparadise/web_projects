@@ -12,11 +12,21 @@ def getDate():
     return d
 
 def getRate(date, fromCurrency, toCurrency):
+    """Retrieve the exchange rate from https://ratesapi.io.
+    The function returns a dictionary object with date, rate,
+    from, and to keys
+    """
+
     c = CurrencyRates()
     rate = c.get_rate(fromCurrency, toCurrency)
     rate = format(rate, '.2f')
 
     return {'Date': date, 'Rate': rate, 'From': fromCurrency, 'To': toCurrency}
+
+
+
+
+
 
 date = getDate()
 csvFile = './web_projects/Exchange_Rate_Monitor/exchange_rates.csv'
