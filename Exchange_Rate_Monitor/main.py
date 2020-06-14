@@ -10,7 +10,8 @@ def getDate():
     x = datetime.datetime.now()
     d = str(x.year) + '.' + str(x.month) + '.' + str(x.day)
 
-    return d
+    # print(x.date())
+    return x
 
 def getRate(date, fromCurrency, toCurrency):
     """Retrieve the exchange rate from https://ratesapi.io.
@@ -19,12 +20,10 @@ def getRate(date, fromCurrency, toCurrency):
     """
 
     c = CurrencyRates()
-    rate = c.get_rate(fromCurrency, toCurrency)
+    rate = c.get_rate(fromCurrency, toCurrency, date)
     rate = format(rate, '.2f')
 
-    return {'Date': date, 'Rate': rate, 'From': fromCurrency, 'To': toCurrency}
-
-
+    return {'Date': str(date.date()), 'Rate': rate, 'From': fromCurrency, 'To': toCurrency}
 
 def sendemail(date, exRate, fmCurrency, toCurrency, receiverEmails): 
     """Send email to a specific address"""
@@ -78,7 +77,7 @@ except IOError:
     
 # If today is not in the exchangeRates list then add today's date,
 # rate, from, and to data as a dictionary item to the list
-if len(exchangeRates) == 0 or exchangeRates[len(exchangeRates)-1]['Date'] != date:
+if len(exchangeRates) == 0 or exchangeRates[len(exchangeRates)-1]['Date'] != str(date.date()):
         todaysRate = getRate(date, 'USD', 'CNY')
         exchangeRates.append(todaysRate)
         if float(todaysRate['Rate']) < 7.0:
