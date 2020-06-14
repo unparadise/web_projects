@@ -5,22 +5,23 @@ import datetime
 from forex_python.converter import CurrencyRates
 
 
-def createDates():
+def createDates(startDate, endDate):
 	"""This function puts a list of dates and returns
 	these dates in a tuple"""
+	dates = []
 
+	start = datetime.datetime.strptime(startDate, '%Y-%m-%d')
+	end = datetime.datetime.strptime(endDate, '%Y-%m-%d')
+	step = datetime.timedelta(days=1)
+	while start <= end:
+	    # print(start.date())
+	    dates.append(start.date())
+	    start += step
 
-
-def getRates(dates, fromCurrency, toCurrency):
-	"""This function retrieves the historical exchange
-	rates from USD to RMB using the list of dates passed
-	to it. It returns a list of dictionaries that contains
-	the Date, Exhange Rate, From currency, and currency
-	key"""
-
-
-def saveRates(data, filePath):
-	"""This function writes the date to the file specified
-	by the parameters"""
-
+	return dates
 	
+dates = createDates('2010-05-03', '2020-06-13')
+
+rate = {'Date': None, 'Rate': 0, 'From': None, 'To': None}
+
+print(dates)
