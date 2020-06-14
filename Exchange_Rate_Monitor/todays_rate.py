@@ -61,12 +61,25 @@ def sendemail(date, exRate, fmCurrency, toCurrency, receiverEmails):
         print('Error: unable to send email')
     server.quit()
 
+## TODO: Update the code to only write the new data
+## TODO: Move the function to a separate file @tomorrow
+def saveRates(rates, file, csvColumns):
+    try:
+        with open(file, 'w') as csvfile:
+            writer = csv.DictWriter(csvfile,fieldnames=csvColumns)
+            writer.writeheader()
+            for data in rates:
+                writer.writerow(data)
+    except IOError:
+        print('Can\'t write to file. I/O error.')
+
 
 # This is the beginning of the main program
 
 date = getDate()
 #csvFile = './web_projects/Exchange_Rate_Monitor/exchange_rates.csv'
 csvFile = './exchange_rates.csv'
+csvColumns = ['Date', 'Rate', 'From', 'To']
 
 try:
     with open(csvFile) as csvFileHandle:
@@ -84,16 +97,5 @@ if len(exchangeRates) == 0 or exchangeRates[len(exchangeRates)-1]['Date'] != str
             sendemail(todaysRate['Date'], todaysRate['Rate'], todaysRate['From'], todaysRate['To'], 'lianchen16@gmail.com')
 
 # Write the exchangeRates list to the exchange_rates.csv file
-## TODO: Update the code to only write the new data
-## TODO: Refactor the code to a function to be reused in the history_rates program
-csvColumns = ['Date', 'Rate', 'From', 'To']
-try:
-    with open(csvFile, 'w') as csvfile:
-        writer = csv.DictWriter(csvfile,fieldnames=csvColumns)
-        writer.writeheader()
-        for data in exchangeRates:
-            writer.writerow(data)
-except IOError:
-    print('Can\'t write to file. I/O error.')
-
+saveRates(exchangeRates, csvFile, csvColumns)
 print(exchangeRates)
