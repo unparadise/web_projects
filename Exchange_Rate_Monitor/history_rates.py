@@ -4,6 +4,7 @@
 import datetime
 from forex_python.converter import CurrencyRates
 
+
 def createDates():
 	"""This function puts a list of dates and returns
 	these dates in a tuple"""
