@@ -85,6 +85,7 @@ if len(exchangeRates) == 0 or exchangeRates[len(exchangeRates)-1]['Date'] != str
 
 # Write the exchangeRates list to the exchange_rates.csv file
 # TODO: Update the code to only write the new data
+# TODO: Refactor the code to a function to be reused in the history_rates program
 csvColumns = ['Date', 'Rate', 'From', 'To']
 try:
     with open(csvFile, 'w') as csvfile:
