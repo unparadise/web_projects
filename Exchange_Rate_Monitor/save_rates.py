@@ -9,6 +9,7 @@ def saveRates(rates, file, csvColumns):
             writer = csv.DictWriter(csvfile,fieldnames=csvColumns)
             writer.writeheader()
             for data in rates:
+            	print('Writing rates.')
                 writer.writerow(data)
     except IOError:
         print('Can\'t write to file. I/O error.')
