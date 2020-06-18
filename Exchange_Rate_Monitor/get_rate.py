@@ -16,4 +16,4 @@ def getRate(date, fromCurrency, toCurrency):
     rate = c.get_rate(fromCurrency, toCurrency, date)
     rate = format(rate, '.2f')
 
-    return {'Date': str(date.date()), 'Rate': rate, 'From': fromCurrency, 'To': toCurrency}
+    return {'Date': str(date), 'Rate': rate, 'From': fromCurrency, 'To': toCurrency}

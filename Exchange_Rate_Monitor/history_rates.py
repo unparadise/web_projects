@@ -1,9 +1,9 @@
-# This program retrieves historical exchange rate
+# This program retrieves historical exchange rateT
 # from USD to RMB using https://ratesapi.io.
 
 import datetime
 from forex_python.converter import CurrencyRates
-
+from get_rate import getRate
 
 def createDates(startDate, endDate):
 	"""This function puts a list of dates and returns
@@ -22,6 +22,12 @@ def createDates(startDate, endDate):
 	
 dates = createDates('2010-05-03', '2020-06-13')
 
-rate = {'Date': None, 'Rate': 0, 'From': None, 'To': None}
+rates = []
+for date in dates:
+	rates.append({'Date:':date, 'Rate': getRate(date, 'USD', 'CNY'), 'From': 'USD', 'To': 'CNY'})
+	print(rates)
 
-print(dates)
+csvFile = './history_rates.csv'
+csvColumns = ['Date', 'Rate', 'From', 'To']
+
+saveRates(rates, csvFile, csvColumns)
