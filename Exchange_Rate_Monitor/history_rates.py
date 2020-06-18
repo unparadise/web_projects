@@ -1,5 +1,6 @@
 # This program retrieves historical exchange rateT
 # from USD to RMB using https://ratesapi.io.
+# TODO: Move the createDates() function to a separate module
 
 import datetime
 from forex_python.converter import CurrencyRates
