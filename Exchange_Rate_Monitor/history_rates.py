@@ -26,7 +26,7 @@ dates = createDates('2010-05-03', '2020-06-13')
 
 rates = []
 for date in dates:
-	rates.append({'Date:':date, 'Rate': getRate(date, 'USD', 'CNY'), 'From': 'USD', 'To': 'CNY'})
+	rates.append({'Date':date, 'Rate': getRate(date, 'USD', 'CNY'), 'From': 'USD', 'To': 'CNY'})
 	# print(rates)
 
 csvFile = './history_rates.csv'
