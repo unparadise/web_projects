@@ -5,6 +5,7 @@
 import datetime
 from forex_python.converter import CurrencyRates
 from get_rate import getRate
+from save_rates import saveRates
 
 def createDates(startDate, endDate):
 	"""This function puts a list of dates and returns
