@@ -11,6 +11,7 @@ todaysRate = {'Date': None, 'Rate': 0, 'From': None, 'To': None}
 alertRate = 7.0
 
 date = getDate()
+# TODO: Remove time from returned date data
 #csvFile = './web_projects/Exchange_Rate_Monitor/exchange_rates.csv'
 csvFile = './exchange_rates.csv'
 csvColumns = ['Date', 'Rate', 'From', 'To']
@@ -33,8 +34,12 @@ if len(exchangeRates) == 0 or exchangeRates[len(exchangeRates)-1]['Date'] != str
 
     # Write the exchangeRates list to the exchange_rates.csv file
     saveRates(exchangeRates, csvFile, csvColumns)
-    print(exchangeRates)
+    for date in exchangeRates:
+        print(f"{date['Date']} : {date['Rate']}")
+    #print(exchangeRates)
 
 else:
     print('Today\'s rate is already retrieved.')
-    print(exchangeRates[len(exchangeRates)-1])
+    for date in exchangeRates:
+        print(f"{date['Date']} : {date['Rate']}")
+    # print(exchangeRates[len(exchangeRates)-1])
