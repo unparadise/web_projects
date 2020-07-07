@@ -1,7 +1,10 @@
 # Function returns the current date time
-import datetime
+from datetime import datetime
 
 def getDate():
-    x = datetime.datetime.now()
+    x = datetime.today()
+    print(x)
+    #x = datetime.now().strftime('%Y-%m-%d')
+    #x = datetime.strptime(x, '%Y-%m-%d')
 
     return x
