@@ -14,5 +14,5 @@ def createDates(startDate, endDate):
 	    # print(start.date())
 	    dates.append(start.date())
 	    start += step
-
+	    
 	return dates
