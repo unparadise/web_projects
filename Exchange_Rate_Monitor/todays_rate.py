@@ -29,17 +29,18 @@ except IOError:
 if len(exchangeRates) == 0 or exchangeRates[len(exchangeRates)-1]['Date'] != str(date.date()):
     todaysRate = getRate(date, 'USD', 'CNY')
     exchangeRates.append(todaysRate)
-    if float(todaysRate['Rate']) < alertRate:
-        sendEmail(todaysRate['Date'], todaysRate['Rate'], todaysRate['From'], todaysRate['To'], 'lianchen16@gmail.com')
+    #if float(todaysRate['Rate']) < alertRate:
+    #    sendEmail(todaysRate['Date'], todaysRate['Rate'], todaysRate['From'], todaysRate['To'], 'lianchen16@gmail.com')
 
     # Write the exchangeRates list to the exchange_rates.csv file
     saveRates(exchangeRates, csvFile, csvColumns)
-    for date in exchangeRates:
-        print(f"{date['Date']} : {date['Rate']}")
+    print(todaysRate)
+    #for date in exchangeRates:
+    #    print(f"{date['Date']} : {date['Rate']}")
     #print(exchangeRates)
 
 else:
     print('Today\'s rate is already retrieved.')
-    for date in exchangeRates:
-        print(f"{date['Date']} : {date['Rate']}")
+    #for date in exchangeRates:
+    #    print(f"{date['Date']} : {date['Rate']}")
     # print(exchangeRates[len(exchangeRates)-1])
