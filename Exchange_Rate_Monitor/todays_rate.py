@@ -13,7 +13,7 @@ alertRate = 7.0
 date = getDate()
 # TODO: Remove time from returned date data
 #csvFile = './web_projects/Exchange_Rate_Monitor/exchange_rates.csv'
-csvFile = './Exchange_Rate_Monitor/exchange_rates.csv'
+csvFile = './exchange_rates.csv'
 csvColumns = ['Date', 'Rate', 'From', 'To']
 
 try:
