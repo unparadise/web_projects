@@ -6,6 +6,15 @@ from get_rate import getRate
 from send_email import sendEmail
 import tkinter as tk
 
+root = tk.Tk()
+root.geometry("200x60")
+root.title("Today's Exchange Rate")
+
+frame = tk.Frame(root)
+frame.pack()
+
+labelExchangeRate = tk.Label(root)
+
 def todayRate():
     exchangeRates = []
     todaysRate = {'Date': None, 'Rate': 0, 'From': None, 'To': None}
@@ -34,26 +43,21 @@ def todayRate():
 
         # Write the exchangeRates list to the exchange_rates.csv file
         saveRates(exchangeRates, csvFile, csvColumns)
-        return todaysRate
+        labelExchangeRate.config(text=todaysRate)
+        return True
 
     else:
         print('Today\'s rate is already retrieved.')
         #print(str(date) + ': ' + exchangeRates[len(exchangeRates)-1]['Rate'])
-        return todaysRate
+        labelExchangeRate.config(text=exchangeRates[len(exchangeRates)-1]['Rate'])
+        return True
 
-
-root = tk.Tk()
-root.title("Today's Exchange Rate")
-
-frame = tk.Frame(root)
-frame.pack()
 
 btnTodayRate = tk.Button(frame,
                    text="Today's Exchange Rate",
                    command=todayRate)
 btnTodayRate.pack(side=tk.LEFT)
 
-label = tk.Label(root)
-label.pack()
+labelExchangeRate.pack()
 
 root.mainloop()
