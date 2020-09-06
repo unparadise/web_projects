@@ -26,7 +26,7 @@ except IOError:
 # If today is not in the exchangeRates list then add today's date,
 # rate, from, and to data as a dictionary item to the list
 ## TODO: move the code that decides whether there is new data to the save_rates.py file
-if len(exchangeRates) == 0 or exchangeRates[len(exchangeRates)-1]['Date'] != str(date.date()):
+if len(exchangeRates) == 0 or exchangeRates[len(exchangeRates)-1]['Date'] != str(date):
     todaysRate = getRate(date, 'USD', 'CNY')
     exchangeRates.append(todaysRate)
     #if float(todaysRate['Rate']) < alertRate:
