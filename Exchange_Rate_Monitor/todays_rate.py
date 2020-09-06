@@ -49,7 +49,7 @@ def todayRate():
     else:
         print('Today\'s rate is already retrieved.')
         #print(str(date) + ': ' + exchangeRates[len(exchangeRates)-1]['Rate'])
-        labelExchangeRate.config(text=exchangeRates[len(exchangeRates)-1]['Rate'])
+        labelExchangeRate.config(text=str(date) + ': ' + exchangeRates[len(exchangeRates)-1]['Rate'])
         return True
 
 
