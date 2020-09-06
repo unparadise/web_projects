@@ -41,6 +41,4 @@ if len(exchangeRates) == 0 or exchangeRates[len(exchangeRates)-1]['Date'] != str
 
 else:
     print('Today\'s rate is already retrieved.')
-    #for date in exchangeRates:
-    #    print(f"{date['Date']}: {date['Rate']}")
     print(str(date) + ': ' + exchangeRates[len(exchangeRates)-1]['Rate'])
