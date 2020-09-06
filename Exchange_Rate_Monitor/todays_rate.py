@@ -43,7 +43,7 @@ def todayRate():
 
         # Write the exchangeRates list to the exchange_rates.csv file
         saveRates(exchangeRates, csvFile, csvColumns)
-        labelExchangeRate.config(text=todaysRate)
+        labelExchangeRate.config(text=str(date) + ': ' + todaysRate['Rate'])
         return True
 
     else:
