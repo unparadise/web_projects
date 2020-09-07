@@ -2,6 +2,7 @@
 import csv
 
 ## TODO: Update the code to only write the new data
+## TODO: Add code to report writing status
 
 def saveRates(rates, file, csvColumns):
     try:
