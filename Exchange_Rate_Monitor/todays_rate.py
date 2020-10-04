@@ -6,14 +6,15 @@ from get_rate import getRate
 from send_email import sendEmail
 import tkinter as tk
 
-root = tk.Tk()
-root.geometry("240x100")
-root.title("Today's Exchange Rate")
+window = tk.Tk()
+window.geometry("260x160")
+window.title("Today's Exchange Rate")
 
-frame = tk.Frame(root)
-frame.pack()
+frameTitle = tk.Frame(master=window)
+frameResult = tk.Frame(master=window)
 
-labelExchangeRate = tk.Label(root)
+labelTitle = tk.Label(master=frameTitle, text="USD/RMB Exchange Rate")
+labelExchangeRate = tk.Label(master=frameResult)
 
 def todayRate():
     exchangeRates = []
@@ -53,11 +54,12 @@ def todayRate():
         return True
 
 
-btnTodayRate = tk.Button(frame,
-                   text="Today's Exchange Rate",
-                   command=todayRate)
-btnTodayRate.pack(side=tk.LEFT, padx= 10, pady=10)
+labelTitle.pack(padx=10, pady = 10)
+btnTodayRate = tk.Button(master=frameTitle, text="Display rate", command=todayRate)
+btnTodayRate.pack(padx= 10)
 
-labelExchangeRate.pack()
+labelExchangeRate.pack(padx=10)
+frameTitle.pack(fill=tk.BOTH, expand=True)
+frameResult.pack(fill=tk.BOTH, expand=True)
 
-root.mainloop()
+window.mainloop()
