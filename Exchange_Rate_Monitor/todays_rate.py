@@ -7,7 +7,7 @@ from send_email import sendEmail
 import tkinter as tk
 
 window = tk.Tk()
-window.geometry("260x160")
+window.geometry("260x140")
 window.title("Today's Exchange Rate")
 
 frameTitle = tk.Frame(master=window)
