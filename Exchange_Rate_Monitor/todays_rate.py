@@ -7,7 +7,7 @@ from send_email import sendEmail
 import tkinter as tk
 
 root = tk.Tk()
-root.geometry("200x60")
+root.geometry("240x100")
 root.title("Today's Exchange Rate")
 
 frame = tk.Frame(root)
@@ -56,7 +56,7 @@ def todayRate():
 btnTodayRate = tk.Button(frame,
                    text="Today's Exchange Rate",
                    command=todayRate)
-btnTodayRate.pack(side=tk.LEFT)
+btnTodayRate.pack(side=tk.LEFT, padx= 10, pady=10)
 
 labelExchangeRate.pack()
 

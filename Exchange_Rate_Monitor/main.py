@@ -42,8 +42,7 @@ def sendemail(date, exRate, fmCurrency, toCurrency, receiverEmails):
     server.starttls()  
       
     # Authentication  
-    server.starttls()  
-      >
+    server.starttls()
     server.login(gmailSenderEmail, gmailPassword)  
       
     # message to be sent  
