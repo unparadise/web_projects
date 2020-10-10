@@ -6,7 +6,7 @@ from get_rate import getRate
 from send_email import sendEmail
 import tkinter as tk
 
-# To Do: Add support to retrieve USD/Ringgit rate
+# TODO: Add support to retrieve USD/Ringgit rate
 # Design question:
 # 1. Should the app offers a dropdown to choose the currency?
 
