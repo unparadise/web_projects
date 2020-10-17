@@ -57,9 +57,8 @@ def todayRate(fromCurrency, toCurrency):
     else:
         print('Today\'s rate is already retrieved.')
         #print(str(date) + ': ' + exchangeRates[len(exchangeRates)-1]['Rate'])
-        labelExchangeRate.config(text=str(date) + ': ' + exchangeRates[len(exchangeRates)-1]['Rate'])
+        labelExchangeRate.config(text=str(date) + ': ' + exchangeRates[len(exchangeRateshannels)-1]['Rate'])
         return True
-
 
 labelTitle.pack(padx=10, pady = 10)
 btnTodayRate = tk.Button(master=frameTitle, text="Display rate", command=lambda: todayRate('USD','MYR'))
