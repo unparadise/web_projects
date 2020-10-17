@@ -17,10 +17,13 @@ window.title("Today's Exchange Rate")
 frameTitle = tk.Frame(master=window)
 frameResult = tk.Frame(master=window)
 
-labelTitle = tk.Label(master=frameTitle, text="USD/RMB Exchange Rate")
+labelTitle = tk.Label(master=frameTitle, text="Exchange Rate")
 labelExchangeRate = tk.Label(master=frameResult)
 
-def todayRate():
+# Chinese RMB Symbol: CNY
+# Malaysia Ringgit Symbol: MYR
+
+def todayRate(fromCurrency, toCurrency):
     exchangeRates = []
     todaysRate = {'Date': None, 'Rate': 0, 'From': None, 'To': None}
     alertRate = 7.0
@@ -41,7 +44,7 @@ def todayRate():
     # rate, from, and to data as a dictionary item to the list
     ## TODO: move the code that decides whether there is new data to the save_rates.py file
     if len(exchangeRates) == 0 or exchangeRates[len(exchangeRates)-1]['Date'] != str(date):
-        todaysRate = getRate(date, 'USD', 'CNY')
+        todaysRate = getRate(date, fromCurrency, toCurrency)
         exchangeRates.append(todaysRate)
         #if float(todaysRate['Rate']) < alertRate:
         #    sendEmail(todaysRate['Date'], todaysRate['Rate'], todaysRate['From'], todaysRate['To'], 'lianchen16@gmail.com')
@@ -59,7 +62,7 @@ def todayRate():
 
 
 labelTitle.pack(padx=10, pady = 10)
-btnTodayRate = tk.Button(master=frameTitle, text="Display rate", command=todayRate)
+btnTodayRate = tk.Button(master=frameTitle, text="Display rate", command=lambda: todayRate('USD','MYR'))
 btnTodayRate.pack(padx= 10)
 
 labelExchangeRate.pack(padx=10)
