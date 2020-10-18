@@ -61,7 +61,7 @@ def todayRate(fromCurrency, toCurrency):
         return True
 
 labelTitle.pack(padx=10, pady = 10)
-btnTodayRate = tk.Button(master=frameTitle, text="Display rate", command=lambda: todayRate('USD','MYR'))
+btnTodayRate = tk.Button(master=frameTitle, text="Display rate", command=lambda: todayRate('USD','CNY'))
 btnTodayRate.pack(padx= 10)
 
 labelExchangeRate.pack(padx=10)
