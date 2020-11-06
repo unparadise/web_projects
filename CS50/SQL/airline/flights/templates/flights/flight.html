@@ -7,5 +7,25 @@
         <li>Origin: {{flight.origin }} </li>
         <li>Destination : {{ flight.destination }}</li>
         <li>Duration: {{ flight.duration }}</li>
+    </ul>
+    
+    <h2> Passengers </h2>
+
     <ul>
+        {% for passenger in passengers %}
+            <li>{{ passenger }} </li>
+        {% empty %}
+            <li>No passengers.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add Passenger</h2>
+    <form action="{% url 'book' flight.id method="post">
+        {% csrf_token %}
+        <select name="passenger">
+            
+        </select>
+    %}"
+
+    <a href="{% url 'index' %}">Back to Flight List</a>
 {% endblock %}
