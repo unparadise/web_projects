@@ -1,0 +1,7 @@
+# Export data in the csv file to SQLite database
+
+import pandas as pd
+import sqlite3
+
+companiesData = pd.read_csv('./S&P_500.csv')
+companiesData.to

@@ -1,0 +1,7 @@
+import pandas as pd
+sp_500 = pd.read_csv('./S&P_500.csv')
+
+# print the symbols to the terminal
+#print(data['Symbol'])
+
+sp_500['Symbol'].to_csv('S&P_500_tickers.csv')
