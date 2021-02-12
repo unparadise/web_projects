@@ -51,3 +51,6 @@ CS50/SQL/airline/users/__pycache__/views.cpython-38.pyc
 CS50/SQL/airline/users/migrations/__pycache__/__init__.cpython-38.pyc
 .vscode/settings.json
 .vscode/settings.json
+Exchange_Rate_Monitor/get_date.pyc
+Exchange_Rate_Monitor/get_rate.pyc
+Exchange_Rate_Monitor/save_rates.pyc
