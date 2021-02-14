@@ -14,11 +14,11 @@ import pandas as pd
 import sqlite3 as db
 from datetime import date
 
-companiesData = pd.read_csv('./S&P_500_tickers.csv')
+companiesData = pd.read_csv('./sp500tickers.csv')
 #print(type(companiesData))
 
 # Extract company tickers from the data frame and turn them into a list
-companyTickers = companiesData['Symbol'].tolist()
+companyTickers = companiesData['Ticker'].tolist()
 # print(companyTickers)
 
 pe_ratios = []
@@ -38,7 +38,7 @@ companiesData['Market Cap'] = market_caps
 companiesData['Dividend Rate'] = dividend_rate
 
 #print(companiesData)
-#companiesData.to_csv("./S&P_500.csv", index=False)
+companiesData.to_csv("./sp500data_" + date + ".csv", index=False)
 date = str(date.today())
 conn = db.connect('SP500'+ date + '.db')
 companiesData.to_sql(name='SP500', con=conn)
