@@ -6,8 +6,6 @@
 # Pass the tickers to Yahoo Finance to get PE ratios of the companies
 # Write the PE ratios back to the S&P500.csv file
 # --------------------
-# Yahoo Finance Library other useful methods
-# get_market_cap()
 
 from yahoofinancials import YahooFinancials
 import pandas as pd
