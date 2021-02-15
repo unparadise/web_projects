@@ -12,6 +12,7 @@ import pandas as pd
 import sqlite3 as db
 from datetime import date
 import yahoodata as yahoodata
+import record_date as record_date
 
 # There are two ticker files
 # './sp500tickers.csv' is the file that has the S&P500 tickers and should be used for pulling down # real data
@@ -25,7 +26,6 @@ if test:
 else:
     tickerList = './sp500tickers.csv'
     outputFile = './sp500data_' + date + '.csv'
-
 
 
 companiesData = pd.read_csv(tickerList)
@@ -59,7 +59,7 @@ companiesData['Industry'] = industries
 
 #print(companiesData)
 companiesData.to_csv(outputFile, index=False)
-
+record_date('update_date.txt')
 
 #conn = db.connect('SP500'+ date + '.db')
 #companiesData.to_sql(name='SP500', con=conn)
