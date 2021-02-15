@@ -31,7 +31,7 @@ for ticker in companyTickers:
     print('Downloading data for ' + ticker + '...')
     pe_ratios.append(yahoo_financials.get_pe_ratio())
     market_caps.append(yahoo_financials.get_market_cap())
-    dividend_rate.append(yahoo_financials.get_market_cap())
+    dividend_rate.append(yahoo_financials.get_dividend_rate())
     
 companiesData['P/E'] = pe_ratios
 companiesData['Market Cap'] = market_caps
