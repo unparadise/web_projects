@@ -38,8 +38,8 @@ companiesData['Market Cap'] = market_caps
 companiesData['Dividend Rate'] = dividend_rate
 
 #print(companiesData)
-companiesData.to_csv("./sp500data_" + date + ".csv", index=False)
 date = str(date.today())
+companiesData.to_csv("./sp500data_" + date + ".csv", index=False)
 conn = db.connect('SP500'+ date + '.db')
 companiesData.to_sql(name='SP500', con=conn)
 
