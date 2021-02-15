@@ -2,6 +2,9 @@ import bs4 as bs
 import requests
 import csv
 
+# Current issue with the function
+# "Berkshire Hathaway Inc." ticker is BRK-B on Yahoo Finance but # on wikipedia it's BRK.B
+
 def save_sp500_tickers():
     resp = requests.get('http://en.wikipedia.org/wiki/List_of_S%26P_500_companies')
     soup = bs.BeautifulSoup(resp.text, 'html.parser')

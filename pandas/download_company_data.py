@@ -13,8 +13,22 @@ import sqlite3 as db
 from datetime import date
 import yahoodata as yahoodata
 
-#companiesData = pd.read_csv('./sp500tickers.csv')
-companiesData = pd.read_csv('./testTickers.csv')
+# There are two ticker files
+# './sp500tickers.csv' is the file that has the S&P500 tickers and should be used for pulling down # real data
+# './testTickers.csv' only has 'AAPL' and 'MSFT' and should be used for testing
+test = False
+
+date = str(date.today())
+if test:
+    tickerList = './testTickers.csv'
+    outputFile = './testdata_' + date + '.csv'
+else:
+    tickerList = './sp500tickers.csv'
+    outputFile = './sp500data_' + date + '.csv'
+
+
+
+companiesData = pd.read_csv(tickerList)
 #print(type(companiesData))
 
 # Extract company tickers from the data frame and turn them into a list
@@ -44,8 +58,9 @@ companiesData['Sector'] = sectors
 companiesData['Industry'] = industries
 
 #print(companiesData)
-date = str(date.today())
-companiesData.to_csv("./sp500data_" + date + ".csv", index=False)
+companiesData.to_csv(outputFile, index=False)
+
+
 #conn = db.connect('SP500'+ date + '.db')
 #companiesData.to_sql(name='SP500', con=conn)
 
