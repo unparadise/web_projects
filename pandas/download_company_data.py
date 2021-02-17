@@ -13,6 +13,7 @@ import sqlite3 as db
 from datetime import date
 import yahoo_data as yahoo_data
 import record_date as record_date
+import os
 
 # There are two ticker files
 # './sp500tickers.csv' is the file that has the S&P500 tickers and should be used for pulling down # real data
@@ -71,6 +72,9 @@ companiesData['Dividend Yield'] = dividend_yields
 #print(companiesData)
 companiesData.to_csv(outputFile, index=False)
 record_date.recordDate('update_date.txt')
+
+# shutdown MAC
+os.system("shutdown /s /t 1")
 
 #conn = db.connect('SP500'+ date + '.db')
 #companiesData.to_sql(name='SP500', con=conn)
