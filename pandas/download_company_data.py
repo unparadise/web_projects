@@ -17,7 +17,7 @@ import record_date as record_date
 # There are two ticker files
 # './sp500tickers.csv' is the file that has the S&P500 tickers and should be used for pulling down # real data
 # './testTickers.csv' only has 'AAPL' and 'MSFT' and should be used for testing
-test = True
+test = False
 
 date = str(date.today())
 if test:
