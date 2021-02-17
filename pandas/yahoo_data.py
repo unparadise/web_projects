@@ -1,6 +1,17 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
 # Function to retrieve sector info from Yahoo Finance profile page
 def getSector(ticker):
     try:
@@ -19,7 +30,7 @@ def getSector(ticker):
 
         return (sector)
     except:
-        print('No Sector info found for ' + ticker)
+        print(f"{bcolors.WARNING}Warning: {bcolors.ENDC} No Sector info found for " + ticker)
         return ('N/A')
 
 # Function to retrieve industry info from Yahoo Finance profile page
@@ -40,7 +51,7 @@ def getIndustry(ticker):
 
         return (industry)
     except:
-        print('No Industry info found for ' + ticker)
+        print(f"{bcolors.WARNING}Warning: {bcolors.ENDC} No Industry info found for " + ticker)
         return ('N/A')
 
 # Function to retrieve to company name info from Yahoo Finance 
@@ -59,7 +70,7 @@ def getName(ticker):
 
         return (companyName)
     except:
-        print('No name found for ' + ticker)
+        print(f"{bcolors.WARNING}Warning: {bcolors.ENDC} No name found for " + ticker)
         return ('N/A')
 
 # Test
