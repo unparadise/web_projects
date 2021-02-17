@@ -42,7 +42,7 @@ companyTickers = companiesData['Ticker'].tolist()
 
 pe_ratios = []
 market_caps = []
-dividend_rates = []
+dividend_yields = []
 sectors = []
 industries = []
 names = []
@@ -53,7 +53,10 @@ for ticker in companyTickers:
     print('Downloading data for ' + ticker + '...')
     pe_ratios.append(yahoo_financials.get_pe_ratio())
     market_caps.append(yahoo_financials.get_market_cap())
-    dividend_rates.append(yahoo_financials.get_dividend_rate())
+    try:
+        dividend_yields.append(str(format(yahoo_financials.get_dividend_yield()*100, ".2f")) + '%')
+    except:
+        dividend_yields.append(str(yahoo_financials.get_dividend_yield()))
     sectors.append(yahoo_data.getSector(ticker))
     industries.append(yahoo_data.getIndustry(ticker))
     names.append(yahoo_data.getName(ticker))
@@ -63,7 +66,7 @@ companiesData['Sector'] = sectors
 companiesData['Industry'] = industries
 companiesData['P/E'] = pe_ratios
 companiesData['Market Cap'] = market_caps
-companiesData['Dividend Rate'] = dividend_rates
+companiesData['Dividend Yield'] = dividend_yields
 
 #print(companiesData)
 companiesData.to_csv(outputFile, index=False)

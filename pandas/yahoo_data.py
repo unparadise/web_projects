@@ -30,7 +30,7 @@ def getSector(ticker):
 
         return (sector)
     except:
-        print(f"{bcolors.WARNING}Warning: {bcolors.ENDC}No Sector info found for " + ticker)
+        print(f"{bcolors.WARNING}Warning:{bcolors.ENDC} No Sector info found for " + ticker)
         return ('N/A')
 
 # Function to retrieve industry info from Yahoo Finance profile page
@@ -51,7 +51,7 @@ def getIndustry(ticker):
 
         return (industry)
     except:
-        print(f"{bcolors.WARNING}Warning: {bcolors.ENDC}No Industry info found for " + ticker)
+        print(f"{bcolors.WARNING}Warning:{bcolors.ENDC} No Industry info found for " + ticker)
         return ('N/A')
 
 # Function to retrieve to company name info from Yahoo Finance 
@@ -66,11 +66,11 @@ def getName(ticker):
         profilePage = urlopen(profileUrl)
 
         soup = BeautifulSoup(profilePage, features="lxml")
-        companyName = str(soup.title.string).split("(")[0][:-1]
+        name = str(soup.title.string).split("(")[0][:-1]
 
-        return (companyName)
+        return (name)
     except:
-        print(f"{bcolors.WARNING}Warning: {bcolors.ENDC}No Name found for " + ticker)
+        print(f"{bcolors.WARNING}Warning:{bcolors.ENDC} No Name found for " + ticker)
         return ('N/A')
 
 # Test
