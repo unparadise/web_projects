@@ -18,8 +18,8 @@ def getSector(ticker):
         sector  = soup.findAll(text="Sector(s)")[0].parent.parent.contents[4].string
 
         return (sector)
-
     except:
+        print('No Sector info found for ' + ticker)
         return ('N/A')
 
 # Function to retrieve industry info from Yahoo Finance profile page
@@ -40,6 +40,7 @@ def getIndustry(ticker):
 
         return (industry)
     except:
+        print('No Industry info found for ' + ticker)
         return ('N/A')
 
 # Function to retrieve to company name info from Yahoo Finance 
@@ -58,6 +59,7 @@ def getName(ticker):
 
         return (companyName)
     except:
+        print('No name found for ' + ticker)
         return ('N/A')
 
 # Test
