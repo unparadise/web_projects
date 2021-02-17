@@ -18,7 +18,7 @@ import os
 # There are two ticker files
 # './sp500tickers.csv' is the file that has the S&P500 tickers and should be used for pulling down # real data
 # './testTickers.csv' only has 'AAPL' and 'MSFT' and should be used for testing
-test = True
+test = False
 
 date = str(date.today())
 if test:
@@ -73,9 +73,9 @@ companiesData['Dividend Yield'] = dividend_yields
 companiesData.to_csv(outputFile, index=False)
 record_date.recordDate('update_date.txt')
 
-# shutdown MAC
-print('Shutting down the computer...')
-os.system("sudo shutdown -s now")
+# Shutdown MAC
+# print('Shutting down the computer...')
+# os.system("sudo shutdown -s now")
 
 #conn = db.connect('SP500'+ date + '.db')
 #companiesData.to_sql(name='SP500', con=conn)
