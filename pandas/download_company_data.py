@@ -11,7 +11,7 @@ from yahoofinancials import YahooFinancials
 import pandas as pd
 import sqlite3 as db
 from datetime import date
-import yahoodata as yahoodata
+import yahoo_data as yahoo_data
 import record_date as record_date
 
 # There are two ticker files
@@ -49,9 +49,9 @@ for ticker in companyTickers:
     pe_ratios.append(yahoo_financials.get_pe_ratio())
     market_caps.append(yahoo_financials.get_market_cap())
     dividend_rates.append(yahoo_financials.get_dividend_rate())
-    sectors.append(yahoodata.getSector(ticker))
-    industries.append(yahoodata.getIndustry(ticker))
-    names.append(yahoodata.getName(ticker))
+    sectors.append(yahoo_data.getSector(ticker))
+    industries.append(yahoo_data.getIndustry(ticker))
+    names.append(yahoo_data.getName(ticker))
 
 companiesData['Name'] = names
 companiesData['Sector'] = sectors
