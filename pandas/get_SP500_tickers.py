@@ -1,3 +1,5 @@
+# Get the tickers in S&P500 from wikipedia
+
 import bs4 as bs
 import requests
 import csv
