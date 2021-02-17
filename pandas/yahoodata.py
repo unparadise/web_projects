@@ -48,7 +48,7 @@ def getIndustry(ticker):
 # Sometimes the retrieved company name contains characters that
 # are not visible on the web page. E.G. BRk-B : Berkshire Hathaway Inc. New. The word New does not show up on the web page.
 
-def getCompanyName(ticker):
+def getName(ticker):
     try:
         profileUrl = "https://finance.yahoo.com/quote/" + ticker + "/profile"
         profilePage = urlopen(profileUrl)

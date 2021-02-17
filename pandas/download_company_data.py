@@ -40,6 +40,7 @@ market_caps = []
 dividend_rates = []
 sectors = []
 industries = []
+names = []
 
 # For each company in the S&P 500 list, extract its PE ratio and market cap and add each of them to its respective list
 for ticker in companyTickers:
@@ -50,12 +51,14 @@ for ticker in companyTickers:
     dividend_rates.append(yahoo_financials.get_dividend_rate())
     sectors.append(yahoodata.getSector(ticker))
     industries.append(yahoodata.getIndustry(ticker))
-    
+    names.append(yahoodata.getName(ticker))
+
+companiesData['Name'] = names
+companiesData['Sector'] = sectors
+companiesData['Industry'] = industries
 companiesData['P/E'] = pe_ratios
 companiesData['Market Cap'] = market_caps
 companiesData['Dividend Rate'] = dividend_rates
-companiesData['Sector'] = sectors
-companiesData['Industry'] = industries
 
 #print(companiesData)
 companiesData.to_csv(outputFile, index=False)
