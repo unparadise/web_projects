@@ -66,7 +66,7 @@ def getName(ticker):
         profilePage = urlopen(profileUrl)
 
         soup = BeautifulSoup(profilePage, features="lxml")
-        companyName = str(soup.title.string).split("(")[0]
+        companyName = str(soup.title.string).split("(")[0][:-1]
 
         return (companyName)
     except:
@@ -74,4 +74,4 @@ def getName(ticker):
         return ('N/A')
 
 # Test
-# print(getCompanyName('BRK-B'))
+# print(getSector('AAPL'))
