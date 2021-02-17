@@ -74,7 +74,8 @@ companiesData.to_csv(outputFile, index=False)
 record_date.recordDate('update_date.txt')
 
 # shutdown MAC
-os.system("sudo shutdown -s 1")
+print('Shutting down the computer...')
+os.system("sudo shutdown -s now")
 
 #conn = db.connect('SP500'+ date + '.db')
 #companiesData.to_sql(name='SP500', con=conn)
