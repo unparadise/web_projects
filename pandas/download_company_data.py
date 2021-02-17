@@ -62,7 +62,7 @@ companiesData['Dividend Rate'] = dividend_rates
 
 #print(companiesData)
 companiesData.to_csv(outputFile, index=False)
-recordDate('update_date.txt')
+record_date.recordDate('update_date.txt')
 
 #conn = db.connect('SP500'+ date + '.db')
 #companiesData.to_sql(name='SP500', con=conn)
