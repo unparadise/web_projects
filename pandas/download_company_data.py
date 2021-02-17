@@ -27,6 +27,11 @@ else:
     tickerList = './sp500tickers.csv'
     outputFile = './sp500data_' + date + '.csv'
 
+# Check the age of the S&P500 tickers list csv file.
+# If it's older than 30 days. Suggest the user to run 'get_SP500_tickers.py' to
+# update the list.
+
+
 
 companiesData = pd.read_csv(tickerList)
 #print(type(companiesData))
