@@ -39,7 +39,7 @@ def getSector(ticker):
 
             return (sector)
 
-        except:
+        except AttributeError as e:
             print(f"{bcolors.WARNING}Warning:{bcolors.ENDC} No Sector info found for " + ticker)
             return ('N/A')
 
@@ -68,7 +68,7 @@ def getIndustry(ticker):
             industry = soup.findAll(text="Industry")[0].parent.parent.contents[10].string
 
             return (industry)
-        except:
+        except AttributeError as e:
             print(f"{bcolors.WARNING}Warning:{bcolors.ENDC} No Industry info found for " + ticker)
             return ('N/A')
 
@@ -94,7 +94,7 @@ def getName(ticker):
             name = str(soup.title.string).split("(")[0][:-1]
     
             return (name)
-        except:
+        except AttributeError as e:
             print(f"{bcolors.WARNING}Warning:{bcolors.ENDC} No Name found for " + ticker)
             return ('N/A')
 
