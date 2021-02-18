@@ -21,10 +21,10 @@ def getSector(ticker):
         profilePage = urlopen(profileUrl)
     except HTTPError:
         print(f"{bcolors.FAIL}FAILED:{bcolors.ENDC}e")
-        return ('N/A')
+        return None
     except URLError:
         print(f"{bcolors.FAIL}The server could not be found!{bcolors.ENDC}")
-        return ('N/A')
+        return None
     else:
         soup = BeautifulSoup(profilePage, features="lxml")
         
@@ -51,10 +51,10 @@ def getIndustry(ticker):
 
     except HTTPError:
         print(f"{bcolors.FAIL}FAILED:{bcolors.ENDC}e")
-        return ('N/A')
+        return None
     except URLError:
         print(f"{bcolors.FAIL}The server could not be found!{bcolors.ENDC}")
-        return ('N/A')
+        return None
     else:
         try:
             soup = BeautifulSoup(profilePage, features="lxml")
@@ -84,10 +84,10 @@ def getName(ticker):
         profilePage = urlopen(profileUrl)
     except HTTPError:
         print(f"{bcolors.FAIL}FAILED:{bcolors.ENDC}e")
-        return ('N/A')
+        return None
     except URLError:
         print(f"{bcolors.FAIL}The server could not be found!{bcolors.ENDC}")
-        return ('N/A')
+        return None
     else:
         try:
             soup = BeautifulSoup(profilePage, features="lxml")
