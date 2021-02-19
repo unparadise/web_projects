@@ -74,8 +74,8 @@ def getIndustry(ticker):
             industry = industry.contents[0].strip()
 
             return (industry)
-            
-        except(AttributeError, KeyError) as e:
+
+        except(AttributeError, KeyError):
             print(f"{bcolors.WARNING}Warning:{bcolors.ENDC} No Industry info found for " + ticker)
             return ('N/A')
 
@@ -106,4 +106,4 @@ def getName(ticker):
             return ('N/A')
 
 # Test
-print(getIndustry('MSFT'))
+# print(getIndustry('MSFT'))
