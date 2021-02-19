@@ -35,11 +35,14 @@ def getSector(ticker):
             #        print(child)
             #    i += 1
             
-            sector  = soup.findAll(text="Sector(s)")[0].parent.parent.contents[4].string
+            #sector  = soup.findAll(text="Sector(s)")[0].parent.parent.contents[4].string
+            sector = soup.find('span', class_='Fw(600)', attrs={'data-reactid':'21'})
+            sector = sector.contents[0].strip()
 
             return (sector)
 
-        except:
+        except(AttributeError, KeyError):
+            #print(e)
             print(f"{bcolors.WARNING}Warning:{bcolors.ENDC} No Sector info found for " + ticker)
             return ('N/A')
 
@@ -65,10 +68,14 @@ def getIndustry(ticker):
             #        print(child.string)
             #    i += 1
 
-            industry = soup.findAll(text="Industry")[0].parent.parent.contents[10].string
+            #industry = soup.findAll(text="Industry")[0].parent.parent.contents[10].string
+
+            industry = soup.find('span', class_='Fw(600)', attrs={'data-reactid':'25'})
+            industry = industry.contents[0].strip()
 
             return (industry)
-        except:
+            
+        except(AttributeError, KeyError) as e:
             print(f"{bcolors.WARNING}Warning:{bcolors.ENDC} No Industry info found for " + ticker)
             return ('N/A')
 
@@ -99,4 +106,4 @@ def getName(ticker):
             return ('N/A')
 
 # Test
-# print(getIndustry('BRK.B'))
+print(getIndustry('MSFT'))
