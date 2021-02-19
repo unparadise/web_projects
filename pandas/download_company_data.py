@@ -13,7 +13,6 @@ import sqlite3 as db
 from datetime import date
 import yahoo_data as yahoo_data
 import record_date as record_date
-import time
 # import os
 
 # There are two ticker files
@@ -62,7 +61,6 @@ for ticker in companyTickers:
     sectors.append(yahoo_data.getSector(ticker))
     industries.append(yahoo_data.getIndustry(ticker))
     names.append(yahoo_data.getName(ticker))
-    time.sleep(5)
 
 
 companiesData['Name'] = names
