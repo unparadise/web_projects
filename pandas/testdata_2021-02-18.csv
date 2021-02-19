@@ -1,0 +1,11 @@
+Ticker,Name,Sector,Industry,P/E,Market Cap,Dividend Yield
+AAPL,Apple Inc.,Technology,Consumer Electronics,35.180367,2177584594944.0,0.63%
+WAB,Westinghouse Air Brake Technolo,Industrials,Railroads,29.86324,13714890752.0,0.67%
+WRK,Westrock Company,Consumer Cyclical,Packaging & Containers,,11315419136.0,1.82%
+WMT,Walmart Inc.,Consumer Defensive,Discount Stores,19.864359,389480054784.0,1.47%
+PHM,"PulteGroup, Inc.",N/A,N/A,8.784776,12090200064.0,1.21%
+PWR,"Quanta Services, Inc.",N/A,N/A,28.082901,10536771584.0,0.31%
+DGX,Quest Diagnostics Incorporated,Healthcare,Diagnostics & Research,11.638013,16206050304.0,2.04%
+REG,Regency Centers Corporation,N/A,N/A,205.73079,9076183040.0,4.47%
+NFLX,"Netflix, Inc.",Communication Services,Entertainment,90.16776,242803884032.0,None
+BRK.B,Requested symbol wasn't foun,N/A,N/A,,,None

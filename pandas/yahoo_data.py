@@ -29,21 +29,22 @@ def getSector(ticker):
         soup = BeautifulSoup(profilePage, features="lxml")
         
         try:
-            #i = 0
-            #for child in soup.findAll(text="Sector(s)")[0].parent.parent.contents:
+            i = 0
+            for child in soup.findAll(text="Sector(s)")[0].parent.parent.contents:
             #    if(i == 4):
-            #        print(child)
+                print(child)
             #    i += 1
             
             #sector  = soup.findAll(text="Sector(s)")[0].parent.parent.contents[4].string
-            sector = soup.find('span', class_='Fw(600)', attrs={'data-reactid':'21'})
-            sector = sector.contents[0].strip()
+            #sector = soup.find('span', class_='Fw(600)', attrs={'data-reactid':'21'})
+            #print(sector)
+            #sector = sector.contents[0].strip()
 
-            return (sector)
+            #return (sector)
 
-        except(AttributeError, KeyError):
-            #print(e)
-            print(f"{bcolors.WARNING}Warning:{bcolors.ENDC} No Sector info found for " + ticker)
+        except(AttributeError, KeyError) as e:
+            print(e)
+            #print(f"{bcolors.WARNING}Warning:{bcolors.ENDC} No Sector info found for " + ticker)
             return ('N/A')
 
 # Function to retrieve industry info from Yahoo Finance profile page
@@ -106,4 +107,4 @@ def getName(ticker):
             return ('N/A')
 
 # Test
-# print(getIndustry('MSFT'))
+print(getSector('PHM'))
