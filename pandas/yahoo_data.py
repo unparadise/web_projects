@@ -37,7 +37,7 @@ def getSector(ticker):
             
             #sector  = soup.findAll(text="Sector(s)")[0].parent.parent.contents[4].string
             #sector = soup.find('span', class_='Fw(600)', attrs={'data-reactid':'21'})
-            TODO: # PHM's data-reactid for Sector is 23.
+            TODO: # PHM's data-reactid for Sector is 23
             #print(sector)
             #sector = sector.contents[0].strip()
 
